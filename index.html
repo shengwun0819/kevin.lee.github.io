@@ -1,12 +1,64 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <title>Kevin Lee - Resume</title>
+  <title>Kevin Lee - 履歷</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; margin: 0; padding: 32px; line-height: 1.6; background:#f7f7f7; }
+    .container { max-width: 900px; margin: 0 auto; background:#fff; padding:32px; box-shadow:0 0 10px rgba(0,0,0,0.05); }
+    h1 { margin-top:0; }
+    h2 { margin-top:32px; border-bottom:1px solid #ddd; padding-bottom:4px; }
+    .section { margin-top:16px; }
+    .item-title { font-weight:600; }
+    .item-meta { color:#666; font-size:0.9rem; }
+    a { color:#0366d6; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+  </style>
 </head>
 <body>
-  <h1>Kevin Lee</h1>
-  <p>這裡之後會放你的履歷內容。</p>
+  <div class="container">
+    <h1>Kevin Lee</h1>
+    <p>
+      Email: <a href="mailto:you@example.com">you@example.com</a> ·
+      GitHub: <a href="https://github.com/shengwun0819" target="_blank">shengwun0819</a> ·
+      地點：Taipei
+    </p>
+
+    <h2>簡介</h2>
+    <div class="section">
+      <p>簡短介紹你自己、年資、主要技術棧、正在找什麼樣的職缺。</p>
+    </div>
+
+    <h2>技能</h2>
+    <div class="section">
+      <p><span class="item-title">前端：</span>HTML, CSS, JavaScript, React, …</p>
+      <p><span class="item-title">後端：</span>Node.js, Python, Go, …</p>
+      <p><span class="item-title">工具：</span>Git, GitHub, Docker, …</p>
+    </div>
+
+    <h2>工作經驗</h2>
+    <div class="section">
+      <p class="item-title">公司名稱 · 職位</p>
+      <p class="item-meta">2023 – 現在 · Taipei</p>
+      <p>簡要描述你在這邊做了什麼，強調成果（數據、改善點）。</p>
+    </div>
+
+    <h2>專案 / 作品</h2>
+    <div class="section">
+      <p class="item-title">
+        專案名稱
+        · <a href="https://github.com/你的專案" target="_blank">GitHub</a>
+        · <a href="https://你的Demo連結" target="_blank">Demo</a>
+      </p>
+      <p>簡要說明技術棧、你解決了什麼問題。</p>
+    </div>
+
+    <h2>學歷</h2>
+    <div class="section">
+      <p class="item-title">學校名稱 · 系所</p>
+      <p class="item-meta">2019 – 2023</p>
+    </div>
+  </div>
 </body>
 </html>
