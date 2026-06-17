@@ -2,62 +2,343 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <title>Kevin Lee - 履歷</title>
+  <title>Kevin Lee - Software Development Engineer in Test</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; margin: 0; padding: 32px; line-height: 1.6; background:#f7f7f7; }
-    .container { max-width: 900px; margin: 0 auto; background:#fff; padding:32px; box-shadow:0 0 10px rgba(0,0,0,0.05); }
-    h1 { margin-top:0; }
-    h2 { margin-top:32px; border-bottom:1px solid #ddd; padding-bottom:4px; }
-    .section { margin-top:16px; }
-    .item-title { font-weight:600; }
-    .item-meta { color:#666; font-size:0.9rem; }
-    a { color:#0366d6; text-decoration:none; }
-    a:hover { text-decoration:underline; }
+    :root {
+      color-scheme: light dark;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 24px;
+      line-height: 1.6;
+      background: #f7f7f7;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 24px 20px 32px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      border-radius: 8px;
+    }
+    header {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    .subtitle {
+      margin-top: 4px;
+      color: #555;
+      font-size: 1rem;
+    }
+    .meta {
+      margin-top: 8px;
+      font-size: 0.95rem;
+      color: #555;
+    }
+    h2 {
+      margin-top: 28px;
+      margin-bottom: 6px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 4px;
+      font-size: 1.2rem;
+    }
+    h3 {
+      margin-top: 16px;
+      margin-bottom: 4px;
+      font-size: 1.05rem;
+    }
+    .section {
+      margin-top: 10px;
+      font-size: 0.98rem;
+    }
+    .item {
+      margin-top: 10px;
+    }
+    .item-title {
+      font-weight: 600;
+    }
+    .item-meta {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    .tagline {
+      margin-top: 4px;
+      color: #555;
+      font-size: 0.95rem;
+    }
+    ul {
+      margin: 6px 0 0 20px;
+      padding-left: 0;
+    }
+    a {
+      color: #0366d6;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 600px) {
+      body {
+        padding: 12px;
+      }
+      .container {
+        padding: 16px 14px 24px;
+        border-radius: 0;
+      }
+      h1 {
+        font-size: 1.7rem;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Kevin Lee</h1>
-    <p>
-      Email: <a href="mailto:you@example.com">you@example.com</a> ·
-      GitHub: <a href="https://github.com/shengwun0819" target="_blank">shengwun0819</a> ·
-      地點：Taipei
-    </p>
+    <header>
+      <h1>Kevin Lee</h1>
+      <div class="subtitle">Software Development Engineer in Test</div>
+      <div class="meta">
+        Tainan City, Taiwan ·
+        Email: <a href="mailto:shengwunlee@gmail.com">shengwunlee@gmail.com</a> ·
+        LinkedIn:
+        <a href="https://www.linkedin.com/in/sheng-wen-lee" target="_blank">
+          sheng-wen-lee
+        </a> ·
+        GitHub:
+        <a href="https://github.com/shengwun0819" target="_blank">
+          shengwun0819
+        </a>
+      </div>
+    </header>
 
-    <h2>簡介</h2>
+    <h2>關於我</h2>
     <div class="section">
-      <p>簡短介紹你自己、年資、主要技術棧、正在找什麼樣的職缺。</p>
-    </div>
-
-    <h2>技能</h2>
-    <div class="section">
-      <p><span class="item-title">前端：</span>HTML, CSS, JavaScript, React, …</p>
-      <p><span class="item-title">後端：</span>Node.js, Python, Go, …</p>
-      <p><span class="item-title">工具：</span>Git, GitHub, Docker, …</p>
-    </div>
-
-    <h2>工作經驗</h2>
-    <div class="section">
-      <p class="item-title">公司名稱 · 職位</p>
-      <p class="item-meta">2023 – 現在 · Taipei</p>
-      <p>簡要描述你在這邊做了什麼，強調成果（數據、改善點）。</p>
-    </div>
-
-    <h2>專案 / 作品</h2>
-    <div class="section">
-      <p class="item-title">
-        專案名稱
-        · <a href="https://github.com/你的專案" target="_blank">GitHub</a>
-        · <a href="https://你的Demo連結" target="_blank">Demo</a>
+      <p>
+        我是李聖文（Kevin），目前在 CoolBitX 的 Sygna 團隊擔任 Software Development
+        Engineer in Test，擁有約 4 年軟體測試經驗。主要負責
+        product function testing、system integration testing、regression testing
+        configuration 以及 product performance testing，並投入自動化測試流程的設計與實作。
       </p>
-      <p>簡要說明技術棧、你解決了什麼問題。</p>
+      <p>
+        在大學與碩班期間，專注於生理訊號、光譜分析與物聯網應用相關的專題與論文，
+        畢業後將這些實作與研究經驗轉化為對系統行為與品質的理解，持續精進測試與開發能力。
+        未來希望深化 SDET 與自動化測試、效能測試的專業，同時探索 AI 在測試流程中的應用。
+      </p>
     </div>
 
-    <h2>學歷</h2>
+    <h2>工作經歷</h2>
     <div class="section">
-      <p class="item-title">學校名稱 · 系所</p>
-      <p class="item-meta">2019 – 2023</p>
+      <div class="item">
+        <div class="item-title">CoolBitX · Sygna 團隊 — Software Engineer in Test</div>
+        <div class="item-meta">2020.09 – 至今 · Taipei / Tainan, Taiwan</div>
+        <ul>
+          <li>執行產品全方位功能驗證，定義測試方向與測試策略。</li>
+          <li>獨立開發整合測試與效能測試專案（PyTest、Jest、k6），將整體測試時間縮短約 50%。</li>
+          <li>協助團隊追蹤、分析產品問題並找出效能瓶頸，驗證與追蹤改善方案成效。</li>
+          <li>負責第三方服務串接驗證，確保 Sygna 產品與外部服務整合的正確性與穩定度。</li>
+          <li>建立 Release Regression Testing 流程，持續維護產品品質與發版穩定性。</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-title">國立成功大學 教務處 — 約聘專員</div>
+        <ul>
+          <li>協助校務行政與系統相關業務支援。</li>
+          <li>使用 Python 與 Selenium 開發線上公文簽核流程自動化腳本，將原本人工操作改為自動化執行，提升同仁作業效率。</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>專案 / Projects</h2>
+    <div class="section">
+      <div class="item">
+        <div class="item-title">Sygna Hub API System Integration Test</div>
+        <div class="item-meta">
+          Python, JavaScript, Node.js · PyTest, boto3, Ngrok, AWS Cloud, PostgreSQL
+        </div>
+        <ul>
+          <li>使用 Python 與 PyTest 設計並開發整合測試流程，涵蓋核心 API 與重要情境。</li>
+          <li>串接 AWS 服務與測試環境，自動建立測試資料與情境，降低手動準備成本。</li>
+          <li>優化產品發版測試時間約 50%，提升釋出節奏的穩定性。</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-title">Sygna Bridge / Sygna Hub System Performance Test</div>
+        <div class="item-meta">
+          JavaScript, Node.js, Golang（learning）· k6, Ngrok, AWS Cloud
+        </div>
+        <ul>
+          <li>使用 JavaScript 與 k6 設計壓力與效能測試腳本，建立可重複使用的測試框架。</li>
+          <li>針對關鍵 API 規劃多種負載情境，重現客戶端問題與流量模式。</li>
+          <li>協助團隊找出系統瓶頸並驗證效能調校成果，提供量化指標作為改善依據。</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-title">Sygna Bridge API System Integration Test</div>
+        <div class="item-meta">
+          JavaScript, Node.js · Jest, Ngrok, AWS SDK, DynamoDB, S3
+        </div>
+        <ul>
+          <li>負責設計 API 測試情境，與開發成員共同維護測試案例與測試資料。</li>
+          <li>使用 AWS SDK 在 DynamoDB 中建立與維護測試資料，並將測試報表輸出至 S3 Bucket。</li>
+          <li>讓整體 API 測試流程更自動化、可重複且易於維護。</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-title">Sygna Gate Frontend Test</div>
+        <div class="item-meta">
+          Python · Selenium · Frontend Regression &amp; E2E Test
+        </div>
+        <ul>
+          <li>根據產品功能設計前端 E2E regression 測試情境與測試案例。</li>
+          <li>使用 Python + Selenium 建立前端 E2E 自動化測試專案（維護約 1–2 年）。</li>
+          <li>降低人工作業成本與回歸測試時間，強化前端釋出品質。</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>技能 Skills</h2>
+    <div class="section">
+      <div class="item">
+        <div class="item-title">程式語言 &amp; 測試技術</div>
+        <ul>
+          <li>Python, JavaScript（Golang learning）</li>
+          <li>Test Frameworks：PyTest, Selenium, Jest</li>
+          <li>Manual Testing：
+            <br>・Web：撰寫測試計畫 / 測試案例
+            <br>・API：使用 Postman 進行設計與驗證
+          </li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-title">開發與雲端工具</div>
+        <ul>
+          <li>Database：PostgreSQL, MySQL</li>
+          <li>Cloud：AWS</li>
+          <li>Container：Docker</li>
+          <li>Scrum / Project Tools：JIRA, ClickUp</li>
+          <li>版本控制：Git, GitHub</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>自傳 Autobiography</h2>
+    <div class="section">
+      <p>
+        我是李聖文（Kevin），畢業於國立臺南大學電機工程學系碩士班，目前在 CoolBitX
+        的 Sygna 團隊擔任軟體測試工程師，負責 product function testing、system integration
+        testing、regression testing configuration 與 product performance testing。
+      </p>
+      <p>
+        在大學與碩士期間，主要專注於生理訊號、光譜分析與物聯網應用相關領域。大學專題
+        《生理資訊控制腿部複合式運動系統》透過 EMG 與體溫訊號動態調整運動阻抗模型與運動角度：
+        使用 C 語言設計肌電與體溫訊號檢測器，並以 Arduino UNO WiFi 實作，搭配雲端資料庫紀錄使用者生理訊號，
+        依據即時生理資訊調整運動參數，以提升訓練效果。
+      </p>
+      <p>
+        碩士論文《結合手機行動光譜分析與螢光蛋白實現毒性化合物檢測系統》則結合 Python
+        光譜分析技術與智慧型手機相機，即時擷取待測食品的反射光譜，並透過 IoTtalk
+        平台將數據傳至後端伺服器進行毒性化合物篩檢與光譜分析，最後以線性迴歸方法判斷食品狀態，
+        讓操作者能在任何時間與地點進行檢測。
+      </p>
+      <p>
+        也曾於國立成功大學教務處擔任約聘專員，負責行政工作與系統相關業務支援。
+        在此期間，使用 Python 與 Selenium 開發線上公文簽核流程自動化工具，將原本需要人工操作的簽核流程自動化，
+        有效提升同仁的工作效率。
+      </p>
+      <p>
+        加入 CoolBitX 的 Sygna 團隊後，陸續主導與參與多項測試相關專案：
+      </p>
+      <ul>
+        <li>建立 Release Regression Testing 流程，確保每次發版都有穩定且可重複的驗證機制。</li>
+        <li>透過 Selenium 建立 E2E 自動化測試專案，降低前端回歸測試的人力成本。</li>
+        <li>使用 PyTest 與 Jest 開發並維護 API 整合測試，整體測試時間縮短約 50%。</li>
+        <li>基於 k6 架設效能測試專案，協助團隊進行壓力測試與性能調整。</li>
+        <li>與第三方服務商協作，負責功能串接驗證與品質把關。</li>
+      </ul>
+      <p>
+        未來我期望持續在軟體測試與開發交界處深耕，強化 SDET 能力，擴展自動化測試與效能測試經驗，
+        並探索如何將 AI 技術導入測試流程，例如測試案例生成、異常偵測與結果分析等面向，
+        協助團隊打造更高效且可靠的產品。
+      </p>
+
+      <h3>Autobiography (EN)</h3>
+      <p>
+        I am Kevin Lee, a Software Development Engineer in Test currently working in the
+        Sygna team at CoolBitX. I have around four years of experience in software
+        testing, focusing on product function testing, system integration testing,
+        regression testing configuration, and performance testing. I also design and
+        implement automated testing workflows for backend services and frontend
+        applications.
+      </p>
+      <p>
+        During my bachelor and master studies, I mainly worked on topics related to
+        physiological signals, spectrum analysis, and IoT applications. My undergraduate
+        project designed a leg exercise system controlled by physiological information,
+        dynamically adjusting resistance and motion range based on EMG and temperature
+        signals. My master thesis combined mobile spectral analysis and fluorescent
+        proteins to detect toxic compounds in food, using Python for spectrum analysis
+        and IoTtalk to stream data to backend services for further evaluation.
+      </p>
+      <p>
+        I also worked as a contract staff member at the Office of Academic Affairs of
+        National Cheng Kung University, where I supported administrative operations and
+        internal systems. In that role, I used Python and Selenium to automate the
+        online document approval workflow, turning a manual process into an automated
+        one and significantly improving efficiency for colleagues.
+      </p>
+      <p>
+        At CoolBitX, I have led or contributed to multiple testing-related projects,
+        including building release regression testing processes, developing E2E
+        automation for frontend using Selenium, creating API integration test projects
+        with PyTest and Jest, and setting up performance and load tests with k6 on
+        Sygna Bridge and Sygna Hub services. These projects helped reduce overall
+        test time, reveal performance bottlenecks, and provide reliable quality
+        signals for releases.
+      </p>
+      <p>
+        Going forward, I aim to deepen my skills as an SDET, continue improving in
+        test automation and performance testing, and explore how AI can be applied
+        to testing workflows, such as generating test cases, detecting anomalies,
+        and analyzing results. My goal is to help teams deliver more reliable products
+        with higher efficiency and better visibility into system quality.
+      </p>
+    </div>
+
+    <h2>學歷 Education</h2>
+    <div class="section">
+      <div class="item">
+        <div class="item-title">國立臺南大學 — 電機工程所 資訊工程組 碩士</div>
+        <div class="item-meta">2017 – 2019</div>
+        <div class="tagline">
+          碩士論文：結合手機行動光譜分析與螢光蛋白實現毒性化合物檢測系統
+        </div>
+        <ul>
+          <li>使用 Python 開發光譜分析技術，結合智慧型手機光學相機擷取反射光譜。</li>
+          <li>結合 IoTtalk 平台，將數據傳送至後端伺服器進行毒性化合物篩檢與線性迴歸分析。</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-title">崑山科技大學 — 資訊工程系 學士</div>
+        <div class="item-meta">2013 – 2017</div>
+        <div class="tagline">專題：足部健身系統</div>
+        <ul>
+          <li>萬潤 Allring 2016 創新創意競賽 — 佳作。</li>
+          <li>資訊科學院 2016 專題展 — 第二名。</li>
+          <li>使用 Arduino 與 eHealth module 實作並紀錄足部肌群訊號。</li>
+        </ul>
+      </div>
     </div>
   </div>
 </body>
