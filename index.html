@@ -36,11 +36,23 @@
 
     header {
       display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
+      align-items: center;
+      gap: 1.5rem;
       padding-bottom: 2.25rem;
       margin-bottom: 0.5rem;
       border-bottom: 1px solid var(--hairline);
+    }
+    
+    header .avatar img {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--hairline);
+    }
+
+    header .headline {
+      flex: 1;
     }
 
     h1 {
@@ -253,6 +265,7 @@
 
     @media (max-width: 600px) {
       .container { padding: 3rem 1.25rem 4rem; }
+      header { flex-direction: column; align-items: flex-start; }
       .item-head { flex-direction: column; gap: 0.15rem; }
     }
   </style>
@@ -260,13 +273,18 @@
 <body>
   <div class="container">
     <header>
-      <h1>Kevin Lee <span class="zh-name">李聖文</span></h1>
-      <div class="subtitle">Software Development Engineer in Test</div>
-      <div class="meta">
-        <span>Tainan City, Taiwan</span>
-        <a href="mailto:shengwunlee@gmail.com">shengwunlee@gmail.com</a>
-        <a href="https://www.linkedin.com/in/sheng-wen-lee" target="_blank">linkedin/sheng-wen-lee</a>
-        <a href="https://github.com/shengwun0819" target="_blank">github/shengwun0819</a>
+      <div class="avatar">
+        <img src="assets/me.png" alt="Kevin Lee portrait" />
+      </div>
+      <div class="headline">
+        <h1>Kevin Lee <span class="zh-name">李聖文</span></h1>
+        <div class="subtitle">Software Development Engineer in Test</div>
+        <div class="meta">
+          <span>Tainan City, Taiwan</span>
+          <a href="mailto:shengwunlee@gmail.com">shengwunlee@gmail.com</a>
+          <a href="https://www.linkedin.com/in/sheng-wen-lee" target="_blank">linkedin/sheng-wen-lee</a>
+          <a href="https://github.com/shengwun0819" target="_blank">github/shengwun0819</a>
+        </div>
       </div>
     </header>
 
