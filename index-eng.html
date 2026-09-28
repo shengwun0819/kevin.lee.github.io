@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kevin Lee - Software Development Engineer in Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --paper: #faf9f6;
+      --ink: #1b1d1f;
+      --muted: #6b7178;
+      --faint: #8d9298;
+      --accent: #2b5d63;
+      --hairline: #dedbd0;
+      --tag-bg: #eeece4;
+      --node-off: #c9c5b8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.7;
+      background: var(--paper);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 4.5rem 1.75rem 6rem;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding-bottom: 2.25rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    header .avatar img {
+      width: 120px;
+      height: 160px;
+      border-radius: 8px;
+      object-fit: contain;
+      border: 1px solid var(--hairline);
+    }
+
+    header .headline {
+      flex: 1;
+    }
+
+    h1 {
+      font-family: ui-serif, Georgia, "Iowan Old Style", serif;
+      font-size: clamp(2.1rem, 5vw, 2.75rem);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin: 0;
+      text-wrap: balance;
+      color: var(--ink);
+    }
+
+    h1 .zh-name {
+      color: var(--muted);
+      font-size: 0.55em;
+      font-family: system-ui, -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1rem;
+      margin-top: 0.5rem;
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.82rem;
+      color: var(--faint);
+    }
+
+    section { margin-top: 3rem; }
+
+    h2 {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin: 0 0 1.1rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    h2::after {
+      content: "";
+      height: 1px;
+      background: var(--hairline);
+      flex: 1;
+    }
+
+    h3 {
+      margin: 1.6rem 0 0.4rem;
+      font-size: 1.02rem;
+      color: var(--ink);
+    }
+
+    .section {
+      font-size: 0.98rem;
+      color: var(--ink);
+    }
+
+    .section p { margin: 0 0 0.9rem; }
+    .section p:last-child { margin-bottom: 0; }
+
+    .item { margin-top: 1.6rem; }
+    .item:first-child { margin-top: 0; }
+
+    .item-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .item-title {
+      font-weight: 600;
+      color: var(--ink);
+      font-size: 1rem;
+    }
+
+    .item-meta {
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.78rem;
+      color: var(--faint);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .tagline {
+      margin-top: 0.3rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    ul {
+      margin: 0.55rem 0 0;
+      padding-left: 1.2rem;
+      font-size: 0.94rem;
+    }
+
+    li { margin-bottom: 0.3rem; }
+    li:last-child { margin-bottom: 0; }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    /* 工作經歷：時間軸節點 */
+    .trace {
+      position: relative;
+      padding-left: 1.9rem;
+    }
+
+    .trace::before {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: var(--hairline);
+    }
+
+    .node {
+      position: relative;
+      margin-bottom: 1.9rem;
+    }
+
+    .node:last-child { margin-bottom: 0; }
+
+    .node::before {
+      content: "";
+      position: absolute;
+      left: -1.9rem;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--paper);
+      border: 2px solid var(--node-off);
+    }
+
+    .node.active::before {
+      border-color: var(--accent);
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(43, 93, 99, 0.15);
+    }
+
+    .node.active .item-meta { color: var(--accent); }
+
+    .current-flag {
+      display: inline-block;
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 2px;
+      padding: 0.05rem 0.4rem;
+      margin-left: 0.6rem;
+      vertical-align: middle;
+    }
+
+    /* 技能標籤 */
+    .skill-groups {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-group-title {
+      grid-column: 1 / -1;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+    .tag {
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.78rem;
+      background: var(--tag-bg);
+      color: var(--ink);
+      padding: 0.2rem 0.55rem;
+      border-radius: 3px;
+    }
+
+    .manual-note { grid-column: 1 / -1; font-size: 0.94rem; margin-top: 0.6rem; color: var(--ink); }
+    .manual-note div { margin-top: 0.2rem; color: var(--muted); }
+
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--hairline);
+      font-size: 0.78rem;
+      color: var(--faint);
+      font-family: ui-monospace, monospace;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 3rem 1.25rem 4rem; }
+      header { flex-direction: column; align-items: flex-start; }
+      .item-head { flex-direction: column; gap: 0.15rem; }
+    }
+    @media print {
+      @page { size: A4; margin: 14mm 0; }
+      :root { --paper: #ffffff; }
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .container { max-width: none; padding: 0 16mm; }
+      h2 { break-after: avoid; }
+      p, li, .item, .node, .skill-groups > div, .tagline { break-inside: avoid; }
+      .item-head, .item-title, .item-meta { break-after: avoid; }
+      a { text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="avatar">
+        <img src="assets/me-white.jpeg" alt="Kevin Lee portrait" />
+      </div>
+      <div class="headline">
+        <h1>Kevin Lee <span class="zh-name">李聖文</span></h1>
+        <div class="subtitle">Software Development Engineer in Test</div>
+        <div class="meta">
+          <span>Tainan City, Taiwan</span>
+          <a href="mailto:shengwunlee@gmail.com">shengwunlee@gmail.com</a>
+          <a href="https://www.linkedin.com/in/sheng-wen-lee" target="_blank">linkedin/sheng-wen-lee</a>
+          <a href="https://github.com/shengwun0819" target="_blank">github/shengwun0819</a>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <h2>About Me</h2>
+      <div class="section">
+        <p>
+          I'm Kevin, a Software Development Engineer in Test on the CoolWallet team at CoolBitX,
+          with nearly 6 years of software testing experience (since 2020.09, first on the Sygna
+          team and now on the CoolWallet team). I currently focus on API and app functional
+          verification, help the team track and resolve product issues, define testing direction,
+          and independently built an API integration testing project to improve testing efficiency.
+          I also use AI to automatically generate app and API test verification documents,
+          raising both testing efficiency and product delivery quality. Before that, on the Sygna
+          team, I was mainly responsible for product function testing, system integration testing,
+          regression testing configuration, and product performance testing, and I designed and
+          implemented automated testing workflows.
+        </p>
+        <p>
+          During my bachelor's and master's studies, I focused on projects and research in
+          physiological signals, spectral analysis, and IoT applications. After graduating, I turned
+          that hands-on and research experience into an understanding of system behavior and quality,
+          and have kept sharpening my testing and development skills. Going forward, I want to deepen
+          my expertise in SDET work, test automation, and performance testing, while exploring how AI
+          can be applied to testing workflows.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="section">
+        <div class="item">
+          <div class="item-title">National University of Tainan — M.S. in Electrical Engineering (Computer Science and Information Engineering Division)</div>
+          <div class="item-meta">2017 – 2019</div>
+          <div class="tagline">
+            Thesis: A Toxic Compound Detection System Combining Mobile Spectral Analysis and Fluorescent Proteins
+          </div>
+          <ul>
+            <li>Developed spectral analysis techniques in Python, capturing reflectance spectra with a smartphone camera.</li>
+            <li>Integrated with the IoTtalk platform to send data to a backend server for toxic compound screening and linear regression analysis.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="item-title">Kun Shan University — B.S. in Computer Science and Information Engineering</div>
+          <div class="item-meta">2013 – 2017</div>
+          <div class="tagline">Capstone Project: Foot Fitness System</div>
+          <ul>
+            <li>Built with Arduino and an eHealth module to capture and record foot muscle signals.</li>
+            <li>Allring 2016 Innovation &amp; Creativity Competition — Honorable Mention.</li>
+            <li>College of Information Science 2016 Project Exhibition — 2nd Place.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Professional Experience</h2>
+      <div class="section trace">
+        <div class="node active">
+          <div class="item-head">
+            <div class="item-title">CoolBitX · CoolWallet Team — Software Development Engineer in Test<span class="current-flag">Current</span></div>
+            <div class="item-meta">2026.05 – Present · Taipei / Tainan, Taiwan</div>
+          </div>
+          <ul>
+            <li>Responsible for API and app functional verification.</li>
+            <li>Help the team track and resolve product issues, and define testing direction.</li>
+            <li>Independently developed an API integration testing project to improve testing efficiency.</li>
+            <li>Use AI to automatically generate app and API test verification documents, tracking and improving product delivery quality.</li>
+          </ul>
+        </div>
+
+        <div class="node">
+          <div class="item-head">
+            <div class="item-title">CoolBitX · Sygna Team — Software Development Engineer in Test</div>
+            <div class="item-meta">2020.09 – 2026.05 · Taipei / Tainan, Taiwan</div>
+          </div>
+          <ul>
+            <li>Performed end-to-end functional verification of products and defined testing direction and strategy.</li>
+            <li>Independently developed integration and performance testing projects (PyTest, Jest, K6), cutting overall testing time by about 50%.</li>
+            <li>Helped the team track and analyze product issues, identify performance bottlenecks, and verify the effectiveness of fixes.</li>
+            <li>Owned verification of third-party service integrations, ensuring Sygna products integrated correctly and reliably with external services.</li>
+            <li>Built a Release Regression Testing process using GitHub Actions to automatically trigger PyTest / Jest regression suites, maintaining product quality and release stability.</li>
+            <li>Mentored interns on the product's test architecture and collaborated with them on test architecture design.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <div class="section">
+        <div class="item">
+          <div class="item-title">Sygna Hub API System Integration Test</div>
+          <div class="tagline">
+            Python, JavaScript, Node.js · PyTest, boto3, Ngrok, AWS Cloud, PostgreSQL
+          </div>
+          <ul>
+            <li>Designed and developed integration testing workflows with Python and PyTest, covering core APIs and key scenarios.</li>
+            <li>Connected AWS services and test environments to automatically create test data and scenarios, reducing manual setup effort.</li>
+            <li>Reduced release testing time by about 50%, stabilizing the release cadence, with 52% test coverage.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="item-title">Sygna Bridge / Sygna Hub System Performance Test</div>
+          <div class="tagline">
+            JavaScript, Node.js, Golang (learning) · K6, Ngrok, AWS Cloud
+          </div>
+          <ul>
+            <li>Designed load and performance test scripts with JavaScript and K6, building a reusable testing framework.</li>
+            <li>Planned multiple load scenarios for critical APIs to reproduce client-side issues and traffic patterns.</li>
+            <li>Helped the team locate system bottlenecks and verify performance tuning, providing quantitative metrics to guide improvements.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="item-title">Sygna Bridge API System Integration Test</div>
+          <div class="tagline">
+            JavaScript, Node.js · Jest, Ngrok, AWS SDK, DynamoDB, S3
+          </div>
+          <ul>
+            <li>Designed API test scenarios and maintained test cases and test data together with developers.</li>
+            <li>Made the testing process more automated, repeatable, and maintainable, reaching 94.12% test coverage.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="item-title">Sygna Gate Frontend Test</div>
+          <div class="tagline">
+            Python · Selenium · Frontend Regression &amp; E2E Test
+          </div>
+          <ul>
+            <li>Designed frontend E2E regression test scenarios and test cases based on product features.</li>
+            <li>Built a frontend E2E automation project with Python + Selenium (maintained for about 1–2 years).</li>
+            <li>Reduced manual effort and regression testing time, strengthening frontend release quality.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <div class="section">
+        <div class="skill-groups">
+          <div>
+            <div class="skill-group-title">Programming &amp; Testing</div>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Golang (learning)</span>
+              <span class="tag">PyTest</span>
+              <span class="tag">K6</span>
+              <span class="tag">Selenium</span>
+              <span class="tag">Jest</span>
+              <span class="tag">AI-assisted testing &amp; documentation</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="skill-group-title">Development &amp; Cloud</div>
+            <div class="tags">
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Supabase</span>
+              <span class="tag">AWS</span>
+              <span class="tag">GCP</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Vercel</span>
+              <span class="tag">Sentry / Datadog</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="skill-group-title">AI Tools &amp; Automation</div>
+            <div class="tags">
+              <span class="tag">Claude Code - AI-assisted coding &amp; test docs</span>
+              <span class="tag">n8n - workflow automation</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="skill-group-title">CI/CD &amp; Version Control</div>
+            <div class="tags">
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">GitHub Actions</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="skill-group-title">Scrum Tools</div>
+            <div class="tags">
+              <span class="tag">JIRA</span>
+              <span class="tag">ClickUp</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="skill-group-title">Manual Testing</div>
+            <div class="tags">
+              <span class="tag">Web - Test plans / test cases</span>
+              <span class="tag">API - Design &amp; verification with Postman</span>
+              <span class="tag">APP - Traffic capture &amp; manual verification with Charles Proxy</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Autobiography</h2>
+      <div class="section">
+        <p>
+          I'm Kevin, and I hold a master's degree from the Department of Electrical Engineering at
+          National University of Tainan. I currently work as a software test engineer on the
+          CoolWallet team at CoolBitX, responsible for API and app functional verification, tracking
+          and resolving product issues, and defining testing direction. I also use AI to automatically
+          generate app and API test verification documents, continuously improving testing efficiency
+          and product delivery quality. Before that, I spent nearly six years on the Sygna team
+          (2020.09 – 2026.05), responsible for product function testing, system integration testing,
+          regression testing configuration, and product performance testing.
+        </p>
+        <p>
+          During my bachelor's and master's studies, I focused mainly on physiological signals,
+          spectral analysis, and IoT applications. My undergraduate project, <em>A Composite Leg
+          Exercise System Controlled by Physiological Information</em>, dynamically adjusted the
+          exercise resistance model and motion angle based on EMG and body temperature signals. I
+          designed the EMG and temperature signal detectors in C, implemented them on an Arduino UNO
+          WiFi, and recorded users' physiological signals in a cloud database, adjusting exercise
+          parameters in real time to improve training results.
+        </p>
+        <p>
+          My master's thesis, <em>A Toxic Compound Detection System Combining Mobile Spectral Analysis
+          and Fluorescent Proteins</em>, combined Python spectral analysis with a smartphone camera to
+          capture the reflectance spectra of food samples in real time. The data was sent through the
+          IoTtalk platform to a backend server for toxic compound screening and spectral analysis, and
+          linear regression was then used to determine the food's condition, letting users run tests
+          anytime, anywhere.
+        </p>
+        <p>
+          I also worked as a contract staff member at the Office of Academic Affairs of National Cheng
+          Kung University, handling administrative work and system support. During that time, I built
+          an automation tool for the online document approval workflow with Python and Selenium,
+          turning a manual approval process into an automated one and noticeably improving my
+          colleagues' efficiency.
+        </p>
+        <p>
+          After joining the Sygna team at CoolBitX, I led or contributed to a number of testing projects:
+        </p>
+        <ul>
+          <li>Built a Release Regression Testing process with GitHub Actions automatically triggering PyTest / Jest regression suites, ensuring every release has stable, repeatable verification.</li>
+          <li>Built an E2E automation project with Selenium, reducing the manual cost of frontend regression testing.</li>
+          <li>Developed and maintained API integration tests with PyTest and Jest, cutting overall testing time by about 50%, with test coverage of 94.12% on the Sygna Bridge API and 52% on the Sygna Hub API.</li>
+          <li>Set up a K6-based performance testing project to support the team's load testing and performance tuning.</li>
+          <li>Worked with third-party service providers on integration verification and quality control.</li>
+          <li>Mentored interns on the product's test architecture and collaborated with them on test architecture design.</li>
+        </ul>
+        <p>
+          After transferring to the CoolWallet team in May 2026, my focus shifted to API and app
+          functional verification, while I continue to help the team track and resolve product issues
+          and define testing direction. I developed an API integration testing project to improve
+          overall testing efficiency, and use AI to automatically generate app and API test
+          verification documents to track and improve product delivery quality.
+        </p>
+        <p>
+          Going forward, I hope to keep working at the intersection of software testing and
+          development: strengthening my SDET skills, expanding my experience in test automation and
+          performance testing, and exploring how AI can be brought into testing workflows, such as test
+          case generation, anomaly detection, and result analysis, to help teams build more efficient
+          and reliable products.
+        </p>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
