@@ -272,6 +272,7 @@
       :root { --paper: #ffffff; }
       body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       .container { max-width: none; padding: 0 16mm; }
+      section { break-inside: avoid; }
       h2 { break-after: avoid; }
       p, li, .item, .node, .skill-groups > div, .tagline { break-inside: avoid; }
       .item-head, .item-title, .item-meta { break-after: avoid; }
@@ -388,6 +389,18 @@
       <h2>Projects</h2>
       <div class="section">
         <div class="item">
+          <div class="item-title">QA AI Test Case Generation Pipeline</div>
+          <div class="tagline">
+            JavaScript · Node.js, Express, Slack API, ClickUp API, Claude CLI (MCP), Ngrok, Tcl/Expect
+          </div>
+          <ul>
+            <li>Designed and built a fully automated test case generation pipeline: when a ticket moves to a specific status, a Slack webhook detects the event and triggers an AI agent that reads the ticket requirements, generates structured test cases, writes them back to the ClickUp doc library, and replies with the result link in the original thread, replacing manual test case writing by QA.</li>
+            <li>Designed a two-stage timeout mechanism (startup timeout / idle timeout) and duplicate-trigger prevention, keeping the service running reliably 24/7 in production.</li>
+            <li>Integrated Slack and ClickUp APIs with an Ngrok tunnel to build an observable, maintainable automation service.</li>
+          </ul>
+        </div>
+
+        <div class="item">
           <div class="item-title">Sygna Hub API System Integration Test</div>
           <div class="tagline">
             Python, JavaScript, Node.js · PyTest, boto3, Ngrok, AWS Cloud, PostgreSQL
@@ -473,6 +486,8 @@
             <div class="tags">
               <span class="tag">Claude Code - AI-assisted coding &amp; test docs</span>
               <span class="tag">n8n - workflow automation</span>
+              <span class="tag">AI Agent integration (Claude CLI / MCP)</span>
+              <span class="tag">Slack API / ClickUp API</span>
             </div>
           </div>
 

@@ -272,6 +272,7 @@
       :root { --paper: #ffffff; }
       body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       .container { max-width: none; padding: 0 16mm; }
+      section { break-inside: avoid; }
       h2 { break-after: avoid; }
       p, li, .item, .node, .skill-groups > div, .tagline { break-inside: avoid; }
       .item-head, .item-title, .item-meta { break-after: avoid; }
@@ -381,6 +382,18 @@
       <h2>專案 Projects</h2>
       <div class="section">
         <div class="item">
+          <div class="item-title">QA AI Test Case Generation Pipeline</div>
+          <div class="tagline">
+            JavaScript · Node.js, Express, Slack API, ClickUp API, Claude CLI (MCP), Ngrok, Tcl/Expect
+          </div>
+          <ul>
+            <li>設計並實作全自動化測試案例產出 pipeline：票卡狀態變更為特定狀態時，透過 Slack webhook 偵測事件，自動呼叫 AI agent 讀取票卡需求並產出結構化測試案例，寫回 ClickUp 文件庫，並於原討論串回覆結果連結，取代 QA 人工撰寫測試案例的流程。</li>
+            <li>設計兩階段逾時機制（啟動逾時 / 閒置逾時）與防重複觸發機制，確保服務可在正式環境 24/7 穩定運行。</li>
+            <li>整合 Slack、ClickUp 多方 API 與 Ngrok tunnel，建立可觀測、可維運的自動化服務。</li>
+          </ul>
+        </div>
+
+        <div class="item">
           <div class="item-title">Sygna Hub API System Integration Test</div>
           <div class="tagline">
             Python, JavaScript, Node.js · PyTest, boto3, Ngrok, AWS Cloud, PostgreSQL
@@ -466,6 +479,8 @@
             <div class="tags">
               <span class="tag">Claude Code - AI-assisted coding &amp; test docs</span>
               <span class="tag">n8n - workflow automation</span>
+              <span class="tag">AI Agent integration (Claude CLI / MCP)</span>
+              <span class="tag">Slack API / ClickUp API</span>
             </div>
           </div>
 
